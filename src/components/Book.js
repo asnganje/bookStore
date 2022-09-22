@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import '../styles/Book.css';
 import progress from '../images/progress.png';
 
-const Book = (props) => {
+function Book(props) {
   const { title, author, categories } = props;
   return (
     <section className="book">
@@ -54,7 +54,7 @@ const Book = (props) => {
       </div>
     </section>
   );
-};
+}
 
 Book.propTypes = {
   title: PropTypes.string.isRequired,
