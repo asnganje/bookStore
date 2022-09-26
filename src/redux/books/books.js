@@ -1,11 +1,11 @@
-const ADD = 'src/redux/books/ADD';
-const REMOVE = 'src/redux/books/REMOVE';
+const ADD_BOOK = 'src/redux/books/ADD_BOOK';
+const REMOVE_BOOK = 'src/redux/books/REMOVE_BOOK';
 const initialState = [];
 /* eslint-disable*/
 const bookReducer = (state = initialState, action) => {
     /* eslint-enable */
   switch (action.type) {
-    case ADD:
+    case ADD_BOOK:
       return [
         ...state,
         {
@@ -16,7 +16,7 @@ const bookReducer = (state = initialState, action) => {
         },
       ];
 
-    case REMOVE:
+    case REMOVE_BOOK:
       return state.filter((book) => book.id !== action.id);
 
     default:
@@ -31,7 +31,7 @@ export const addingBook = (
   category = 'Action',
   id,
 ) => ({
-  type: ADD,
+  type: ADD_BOOK,
   title,
   author,
   category,
@@ -39,7 +39,7 @@ export const addingBook = (
 });
 
 export const removingBook = (id) => ({
-  type: REMOVE,
+  type: REMOVE_BOOK,
   id,
 });
 
