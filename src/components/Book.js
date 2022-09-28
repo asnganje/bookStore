@@ -3,11 +3,9 @@ import PropTypes from 'prop-types';
 import { useDispatch } from 'react-redux';
 import '../styles/Book.css';
 import progress from '../images/progress.png';
-// import { removingBook } from '../redux/books/books';
 import { deleteBook } from '../redux/books/Api';
 
-/* eslint-disable */
-const Book = (props) => {
+function Book(props) {
   const {
     id, title, author, category,
   } = props;
@@ -65,7 +63,7 @@ const Book = (props) => {
       </div>
     </section>
   );
-};
+}
 
 Book.defaultProps = {
   id: '0',

@@ -1,12 +1,10 @@
 import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { nanoid } from '@reduxjs/toolkit';
-// import { addingBook } from '../redux/books/books';
 import { addNewBook } from '../redux/books/Api';
 import '../styles/Form.css';
 
-/* eslint-disable */
-const Form = () => {
+function Form() {
   // Set States
   const [title, setTitle] = useState('');
   const [author, setAuthor] = useState('');
@@ -67,6 +65,6 @@ const Form = () => {
       </div>
     </form>
   );
-};
+}
 
 export default Form;

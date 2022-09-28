@@ -5,8 +5,7 @@ import '../styles/Books.css';
 import Book from './Book';
 import Form from './Form';
 
-/* eslint-disable */
-const AllBooks = () => {
+function AllBooks() {
   const books = useSelector((state) => state.books, shallowEqual);
   const dispatch = useDispatch();
 
@@ -28,11 +27,6 @@ const AllBooks = () => {
     <div>
       <section>
         <section className="book-list">
-          {/* <Book
-            title="Hunger Games"
-            author="Susana Collins"
-            categories="Action"
-          /> */}
           {dispatchBooks}
         </section>
         <Form />
@@ -40,6 +34,6 @@ const AllBooks = () => {
       ;
     </div>
   );
-};
+}
 
 export default AllBooks;
