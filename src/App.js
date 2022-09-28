@@ -15,7 +15,7 @@ function App() {
         <section className="container">
           <Routes>
             <Route path="/" exact element={<AllBooks />} />
-            <Route path="/Category" element={<Category />} />
+            <Route path="/categories" element={<Category />} />
             <Route path="/*" element={<NotSeen />} />
           </Routes>
         </section>

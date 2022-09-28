@@ -1,22 +1,32 @@
 import React from 'react';
+import { useSelector, shallowEqual } from 'react-redux';
 import '../styles/Books.css';
 import Book from './Book';
 import Form from './Form';
 
 function AllBooks() {
+  const books = useSelector((state) => state.books, shallowEqual);
+
+  const dispatchBooks = books.map((book) => (
+    <Book
+      title={book.title}
+      author={book.author}
+      category={book.category}
+      id={book.id}
+      key={book.id}
+    />
+  ));
+
   return (
-    <section>
-      <section className="books">
-        <Book title="Hunger Games" author="Susana Collins" categories="Action" />
-        <Book title="Dune" author="Frank Herbelt" categories="Science Fiction" />
-        <Book
-          title="Capital In The Tweenty Century"
-          author="Susana Collin"
-          categories="Economy"
-        />
+    <div>
+      <section>
+        <section className="book-list">
+          {dispatchBooks}
+        </section>
+        <Form />
       </section>
-      <Form />
-    </section>
+      ;
+    </div>
   );
 }
 

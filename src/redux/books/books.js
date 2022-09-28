@@ -1,9 +1,29 @@
 const ADD_BOOK = 'src/redux/books/ADD_BOOK';
 const REMOVE_BOOK = 'src/redux/books/REMOVE_BOOK';
-const initialState = [];
-/* eslint-disable*/
+const initialState = [
+  {
+    id: '1',
+    title: 'Mastering Computers',
+    author: 'Graham Wright',
+    category: 'Programming',
+  },
+  {
+    id: '2',
+    title: 'East Africa: An Introductory History',
+    author: 'Robert M. Maxon ',
+    category: 'History',
+  },
+  {
+    id: '3',
+    title: 'Stand-Up Comedy: The Book',
+    author: 'Judy Carter',
+    category: 'Comedy',
+  },
+];
+
+// Reducer
+/* eslint-disable */
 const bookReducer = (state = initialState, action) => {
-    /* eslint-enable */
   switch (action.type) {
     case ADD_BOOK:
       return [
@@ -24,13 +44,8 @@ const bookReducer = (state = initialState, action) => {
   }
 };
 
-export const addingBook = (
-/* eslint-disable */
-  title = 'Redux Basics',
-  author = 'Nganje',
-  category = 'Action',
-  id,
-) => ({
+// Action Creators
+export const addingBook = (title, author, category, id) => ({
   type: ADD_BOOK,
   title,
   author,

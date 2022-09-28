@@ -1,16 +1,21 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { useDispatch } from 'react-redux';
 import '../styles/Book.css';
 import progress from '../images/progress.png';
+import { removingBook } from '../redux/books/books';
 
 function Book(props) {
-  const { title, author, categories } = props;
+  const {
+    id, title, author, category,
+  } = props;
+  const dispatch = useDispatch();
   return (
-    <section className="book">
+    <section id={id} className="book">
       <div className="book-container">
         <div className="block-left">
           <div className="info">
-            <span className="categories">{categories}</span>
+            <span className="categories">{category}</span>
             <h2>{title}</h2>
             <h3>{author}</h3>
           </div>
@@ -19,7 +24,11 @@ function Book(props) {
               Comments
             </button>
             <div className="vertical-divider" />
-            <button type="button" className="btn-outline">
+            <button
+              type="button"
+              className="btn-outline"
+              onClick={() => dispatch(removingBook(id))}
+            >
               Remove
             </button>
             <div className="vertical-divider" />
@@ -56,9 +65,17 @@ function Book(props) {
   );
 }
 
+Book.defaultProps = {
+  id: '0',
+  title: null,
+  author: null,
+  category: null,
+};
+
 Book.propTypes = {
-  title: PropTypes.string.isRequired,
-  author: PropTypes.string.isRequired,
-  categories: PropTypes.string.isRequired,
+  id: PropTypes.string,
+  title: PropTypes.string,
+  author: PropTypes.string,
+  category: PropTypes.string,
 };
 export default Book;

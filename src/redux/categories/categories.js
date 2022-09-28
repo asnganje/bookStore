@@ -1,7 +1,6 @@
 const CHECK_STATUS = 'src/redux/categories/CHECK_STATUS';
-
 const initialState = [];
-/* eslint-disable*/
+/* eslint-disable */
 const categoriesReducer = (state = initialState, action) => {
   switch (action.type) {
     case CHECK_STATUS:
@@ -11,9 +10,9 @@ const categoriesReducer = (state = initialState, action) => {
   }
 };
 
-const checkState = () => ({
+const checkStatus = () => ({
   type: CHECK_STATUS,
 });
 
-export { checkState };
+export { checkStatus };
 export default categoriesReducer;

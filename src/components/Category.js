@@ -1,11 +1,22 @@
 import React from 'react';
 import '../styles/Category.css';
+import { useSelector, useDispatch } from 'react-redux';
+import { checkStatus } from '../redux/categories/categories';
 
 function Category() {
+  const dispatch = useDispatch();
+  const status = useSelector((state) => state.categories);
   return (
-    <section className="category">
-      <span>404</span>
-      <h1>Sorry, Not Yet Available!</h1>
+    <section className="categories-container">
+      <span />
+      <h1>{status}</h1>
+      <button
+        type="button"
+        className="status-btn"
+        onClick={() => dispatch(checkStatus())}
+      >
+        Check Status
+      </button>
     </section>
   );
 }
