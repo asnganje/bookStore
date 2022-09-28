@@ -3,9 +3,11 @@ import PropTypes from 'prop-types';
 import { useDispatch } from 'react-redux';
 import '../styles/Book.css';
 import progress from '../images/progress.png';
-import { removingBook } from '../redux/books/books';
+// import { removingBook } from '../redux/books/books';
+import { deleteBook } from '../redux/books/Api';
 
-function Book(props) {
+/* eslint-disable */
+const Book = (props) => {
   const {
     id, title, author, category,
   } = props;
@@ -27,7 +29,7 @@ function Book(props) {
             <button
               type="button"
               className="btn-outline"
-              onClick={() => dispatch(removingBook(id))}
+              onClick={() => dispatch(deleteBook(id))}
             >
               Remove
             </button>
@@ -63,7 +65,7 @@ function Book(props) {
       </div>
     </section>
   );
-}
+};
 
 Book.defaultProps = {
   id: '0',

@@ -1,43 +1,20 @@
 const ADD_BOOK = 'src/redux/books/ADD_BOOK';
 const REMOVE_BOOK = 'src/redux/books/REMOVE_BOOK';
-const initialState = [
-  {
-    id: '1',
-    title: 'Mastering Computers',
-    author: 'Graham Wright',
-    category: 'Programming',
-  },
-  {
-    id: '2',
-    title: 'East Africa: An Introductory History',
-    author: 'Robert M. Maxon ',
-    category: 'History',
-  },
-  {
-    id: '3',
-    title: 'Stand-Up Comedy: The Book',
-    author: 'Judy Carter',
-    category: 'Comedy',
-  },
-];
+const LOAD_API_BOOK = 'ADD_API_BOOK';
+
+const initialState = [];
 
 // Reducer
-/* eslint-disable */
 const bookReducer = (state = initialState, action) => {
   switch (action.type) {
-    case ADD_BOOK:
-      return [
-        ...state,
-        {
-          title: action.title,
-          author: action.author,
-          category: action.category,
-          id: action.id,
-        },
-      ];
+    case `${ADD_BOOK}/fulfilled`:
+      return [...state, action.payload];
 
-    case REMOVE_BOOK:
-      return state.filter((book) => book.id !== action.id);
+    case `${REMOVE_BOOK}/fulfilled`:
+      return state.filter((book) => book.id !== action.payload);
+
+    case `${LOAD_API_BOOK}/fulfilled`:
+      return [...action.payload];
 
     default:
       return state;
@@ -58,4 +35,5 @@ export const removingBook = (id) => ({
   id,
 });
 
+export { LOAD_API_BOOK, ADD_BOOK, REMOVE_BOOK };
 export default bookReducer;

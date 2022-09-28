@@ -1,10 +1,12 @@
 import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { nanoid } from '@reduxjs/toolkit';
-import { addingBook } from '../redux/books/books';
+// import { addingBook } from '../redux/books/books';
+import { addNewBook } from '../redux/books/Api';
 import '../styles/Form.css';
 
-function Form() {
+/* eslint-disable */
+const Form = () => {
   // Set States
   const [title, setTitle] = useState('');
   const [author, setAuthor] = useState('');
@@ -14,7 +16,14 @@ function Form() {
   // Handle Submit book
   const handleAddBook = () => {
     if (title === '' || author === '' || category !== 'DEFAULT') {
-      dispatch(addingBook(title, author, category, nanoid()));
+      const id = nanoid();
+      const newBook = {
+        title,
+        author,
+        category,
+        id,
+      };
+      dispatch(addNewBook(newBook));
       setTitle('');
       setAuthor('');
       setCategory('DEFAULT');
@@ -58,6 +67,6 @@ function Form() {
       </div>
     </form>
   );
-}
+};
 
 export default Form;

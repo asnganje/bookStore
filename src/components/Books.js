@@ -1,11 +1,18 @@
-import React from 'react';
-import { useSelector, shallowEqual } from 'react-redux';
+import React, { useEffect } from 'react';
+import { useSelector, useDispatch, shallowEqual } from 'react-redux';
+import { fetchBooks } from '../redux/books/Api';
 import '../styles/Books.css';
 import Book from './Book';
 import Form from './Form';
 
-function AllBooks() {
+/* eslint-disable */
+const AllBooks = () => {
   const books = useSelector((state) => state.books, shallowEqual);
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(fetchBooks());
+  }, []);
 
   const dispatchBooks = books.map((book) => (
     <Book
@@ -21,6 +28,11 @@ function AllBooks() {
     <div>
       <section>
         <section className="book-list">
+          {/* <Book
+            title="Hunger Games"
+            author="Susana Collins"
+            categories="Action"
+          /> */}
           {dispatchBooks}
         </section>
         <Form />
@@ -28,6 +40,6 @@ function AllBooks() {
       ;
     </div>
   );
-}
+};
 
 export default AllBooks;
