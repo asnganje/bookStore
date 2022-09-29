@@ -5,15 +5,15 @@
 }
 
 .bookApp {
+  margin: auto;
   width: 100%;
-  height: 80vh;
+  height: 100%;
   font-family: "Montserrat", sans-serif;
-  background-color: #f5f6fa;
   padding: 4%;
 }
 
 .nav {
-  margin: 2rem auto;
+  margin: 0 auto;
 }
 
 .container {
@@ -22,5 +22,6 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  min-height: 400px;
   padding-top: 1rem;
 }

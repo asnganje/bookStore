@@ -25,7 +25,7 @@ function AllBooks() {
 
   return (
     <div>
-      <section>
+      <section className="main">
         <section className="book-list">
           {dispatchBooks}
         </section>

@@ -1,22 +1,21 @@
 .form-main {
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
-  width: 75rem;
+  width: 100%;
+  border-top: 2px solid #e8e8e8;
   height: 13rem;
-  margin: 1rem 6rem;
-  padding: 2rem 9rem 1.625rem 1.7rem;
+  padding: 2rem 0;
 }
 
 .form-main h1 {
-  font-size: 1.25rem;
+  font-size: 2rem;
   font-weight: 700;
-  letter-spacing: -0.18px;
   color: #888;
+  padding-left: 5px;
 }
 
 .form-input {
-  margin-top: 20px;
+  margin-top: 5px;
   display: flex;
   grid-gap: 32px;
   gap: 32px;
@@ -28,6 +27,7 @@ input {
   border-radius: 4px;
   border: 1px solid #e8e8e8;
   background-color: #fff;
+  outline: none;
   font-size: 1rem;
   letter-spacing: -0.15px;
   color: #121212;
@@ -39,6 +39,7 @@ input {
   border-radius: 4px;
   border: 1px solid #e8e8e8;
   background-color: #fff;
+  outline: none;
   font-size: 1rem;
   letter-spacing: -0.15px;
   color: #121212;
